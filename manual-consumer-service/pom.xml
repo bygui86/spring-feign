@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.rabbit.samples</groupId>
-	<artifactId>producer-service</artifactId>
+	<artifactId>manual-consumer-service</artifactId>
 	<version>0.0.1</version>
 	<packaging>jar</packaging>
 
-	<name>producer-service</name>
-	<description>Spring OpenFeign sample project - Producer service</description>
+	<name>manual-consumer-service</name>
+	<description>Spring Service Discovery sample project - Consumer service manually configured</description>
 	<url>https://github.com/bygui86/spring-feign</url>
 
 	<contributors>
@@ -39,6 +39,9 @@
 
 		<!-- spring -->
 		<spring-boot.version>2.0.4.RELEASE</spring-boot.version>
+
+		<!-- openfeign -->
+		<openfeign.version>9.3.1</openfeign.version>
 
 		<!-- logging -->
 		<slf4.version>1.7.25</slf4.version>
@@ -84,6 +87,28 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-undertow</artifactId>
+		</dependency>
+
+		<!-- openfeign -->
+		<!-- Better use OpenFeign specific packages -->
+		<!--<dependency>-->
+		<!--<groupId>org.springframework.cloud</groupId>-->
+		<!--<artifactId>spring-cloud-starter-openfeign</artifactId>-->
+		<!--</dependency>-->
+		<dependency>
+			<groupId>io.github.openfeign</groupId>
+			<artifactId>feign-okhttp</artifactId>
+			<version>${openfeign.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.github.openfeign</groupId>
+			<artifactId>feign-gson</artifactId>
+			<version>${openfeign.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.github.openfeign</groupId>
+			<artifactId>feign-slf4j</artifactId>
+			<version>${openfeign.version}</version>
 		</dependency>
 
 		<!-- logging -->
