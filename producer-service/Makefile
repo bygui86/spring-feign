@@ -124,13 +124,16 @@ docker-build : docker-prepare		## Build docker image
 	docker build -t $(IMAGE_NAME):$(IMAGE_TAG) .
 
 docker-run :		## Run docker image as deamon
-	docker run -d --name $(NAME) -p $(IMAGE_EXPOSE_PORT):$(IMAGE_EXPOSE_PORT) $(IMAGE_NAME):$(IMAGE_TAG)
+	docker run -d --rm --name $(NAME) -p $(IMAGE_EXPOSE_PORT):$(IMAGE_EXPOSE_PORT) $(IMAGE_NAME):$(IMAGE_TAG)
 
 docker-run-temp :		## Run docker image as temporary foreground
 	docker run -ti --rm --name $(NAME) -p $(IMAGE_EXPOSE_PORT):$(IMAGE_EXPOSE_PORT) $(IMAGE_NAME):$(IMAGE_TAG)
 
 docker-stop :		## Stop docker image
-	docker container stop -f $(NAME)
+	docker container stop $(NAME)
+
+docker-kill :		## Kill docker image
+	docker container kill $(NAME)
 
 docker-push : docker-build		## Push docker image to docker registry
 	docker push $(DOCKER_HOST_IP):$(DOCKER_HOST_PORT)/$(IMAGE_NAME):$(IMAGE_TAG)
