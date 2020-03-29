@@ -45,6 +45,10 @@ out/
 .recommenders/
 eclipsebin/
 RemoteSystemsTempFiles/
+**/.settings
+**/.classpath
+**/.factorypath
+**/.project
 
 ########### Visual Studio Code
 *.code-workspace
